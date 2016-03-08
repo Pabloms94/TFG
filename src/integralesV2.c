@@ -16,28 +16,35 @@ float integral (float menor, float particiones, float dx);
 float funcion (float x);
 
 int main(void) {
-	float menor = 1;
-	float mayor = 2.71;
+	float menor = 4;
+	float mayor = 7;
 	float particiones = 1000;
-	float dx = (mayor - menor) /particiones;
+	float dx;
+	float resultado;
 
-	float resultado = integral(menor, particiones, dx);
+	dx = (mayor - menor) /particiones;
+	resultado = integral(menor, particiones, dx);
 	printf ("RESULTADO : %f", resultado);
+
 	return 0;
 }
 
 float integral (float menor, float particiones, float dx){
 	int i;
+	float verticeMenor;
+	float valorFuncion;
+	float area;
 	float resultado = 0;
 
 	for(i = 0; i < particiones; i++){
-		float verticeMenor = menor + i*dx;
-		float valorFuncion = funcion(verticeMenor);
-		float area = valorFuncion * dx;
+		verticeMenor = menor + i*dx;
+		valorFuncion = funcion(verticeMenor);
+		area = valorFuncion * dx;
 		resultado += area;
 	}
+
 	return resultado;
 }
 float funcion (float x){
-	return 1/x;
+	return x;
 }
