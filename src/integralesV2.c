@@ -13,8 +13,8 @@
 #include <math.h>
 
 float integral (float menor, float particiones, float dx);
-float dobleIntegral (float menor1, float menor2, float particiones, float dx);
-float funcion (float x);
+float dobleIntegral (float menor1, float mayor2, float menor2, float particiones, float dx);
+float funcion (float x, float y);
 
 /**
  * Menor y mayor hacen referecia a los extremos de las integrales.
@@ -22,21 +22,21 @@ float funcion (float x);
  */
 
 int main(void) {
-	float menor1 = 3;
-	float mayor1 = 5;
-	float menor2 = 1;
-	//float mayor2 = 5;
+	float menor1 = 1;
+	float mayor1 = 2;
+	float menor2 = 3;
+	float mayor2 = 4;
 	float particiones = 1000;
 	float dy;
 	float resultado;
 
 	dy = (mayor1 - menor1) /particiones;
-	resultado = dobleIntegral(menor1, menor2, particiones, dy);
+	resultado = dobleIntegral(menor1, mayor2, menor2, particiones, dy);
 	printf ("RESULTADO : %f", resultado);
 
 	return 0;
 }
-
+/*
 float integral (float menor, float particiones, float dx){
 	int i;
 	float verticeMenor;
@@ -52,11 +52,11 @@ float integral (float menor, float particiones, float dx){
 	}
 
 	return resultado;
-}
+}*/
 /**
  * Los valores verticeMenor hacen referencia al valor del extremo inferior de la partición que se toma como referencia.
  */
-float dobleIntegral (float menor1, float menor2, float particiones, float dy){
+float dobleIntegral (float menor1, float mayor2, float menor2, float particiones, float dy){
 	int i, j;
 	float verticeMenorY, verticeMenorX;
 	float valorFuncion;
@@ -67,12 +67,12 @@ float dobleIntegral (float menor1, float menor2, float particiones, float dy){
 	for(i = 0; i < particiones; i++){
 
 		verticeMenorY = menor1 + i * dy;
-		dx = (verticeMenorY - menor2) / particiones;
+		dx = (mayor2 - menor2) / particiones;
 		resultado2 = 0;
 
 		for (j = 0; j < particiones; j++) {
 			verticeMenorX = menor2 + dx * j;
-			valorFuncion = funcion(verticeMenorX);
+			valorFuncion = funcion(verticeMenorY,verticeMenorX);
 			area2 = valorFuncion * dx;
 			resultado2 += area2;
 		}
@@ -84,6 +84,6 @@ float dobleIntegral (float menor1, float menor2, float particiones, float dy){
 	return resultado1;
 }
 
-float funcion (float x){
-	return x*x/2+3*x-1/x;
+float funcion (float x, float y){
+	return x*y;
 }
