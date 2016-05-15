@@ -13,6 +13,10 @@
 #include <math.h>
 #include "cJSON.h"
 
+/*
+ * @author Pablo Martin Sanchez
+ */
+
 float dobleIntegral (float menor1, float mayor2, float menor2, float particiones, float dx);
 float funcion (float x, float y);
 double newton (int n, double *x, double *y, double interpolar);
