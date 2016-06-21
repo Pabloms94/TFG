@@ -4,6 +4,7 @@
 #include "cJSON.h"
 #include "integrales.h"
 #include "interpolacion.h"
+#include "funcion.h"
 
 /*
  * @author Pablo Martin Sanchez
@@ -48,7 +49,7 @@ int main(void) {
 	fclose(f);
 
 	//Integrales
-	resultado = dobleIntegral(mayor1, menor1, mayor2, menor2, particiones);
+	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
 	printf ("RESULTADO INTEGRALES: %lg.\n\n", resultado);
 
 	//Interpolación

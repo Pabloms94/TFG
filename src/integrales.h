@@ -15,6 +15,6 @@
  * @param verticeMenor hace referencia al valor del extremo inferior de la particion que se toma como referencia. X e Y distinguen la coordenada que almacenan.
  */
 
-double dobleIntegral (double mayor1, double menor1, double mayor2, double menor2, int particiones);
+double dobleIntegral (double(*f)(double, double), double mayor1, double menor1, double mayor2, double menor2);
 
 #endif /* INTEGRALES_H_ */

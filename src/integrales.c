@@ -1,7 +1,8 @@
 #include "funcion.h"
 
-double dobleIntegral (double mayor1, double menor1, double mayor2, double menor2, int particiones){
+double dobleIntegral (double(*f)(double, double), double mayor1, double menor1, double mayor2, double menor2){
 	int i, j;
+	int particiones = 1000;
 	double verticeMenorY, verticeMenorX;
 	double valorFuncion;
 	double area1, area2;
@@ -18,7 +19,7 @@ double dobleIntegral (double mayor1, double menor1, double mayor2, double menor2
 
 		for (j = 0; j < particiones; j++) {
 			verticeMenorX = menor2 + dx * j;
-			valorFuncion = funcion(verticeMenorY,verticeMenorX);
+			valorFuncion = (*f)(verticeMenorY,verticeMenorX);
 			area2 = valorFuncion * dx;
 			resultado2 += area2;
 		}
