@@ -2,7 +2,7 @@
  * @brief declaracion de la funcion integrales
  *
  * @file integrales.h
- * @author Pablo Martín
+ * @author Pablo Martin
  */
 
 #ifndef INTEGRALES_H_

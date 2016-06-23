@@ -2,7 +2,7 @@
  * @brief declaracion de la funcion de interpolacion
  *
  * @file interpolacion.h
- * @author Pablo Martín
+ * @author Pablo Martin
  */
 
 #ifndef INTERPOLACION_H_

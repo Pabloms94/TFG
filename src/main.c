@@ -25,7 +25,6 @@ int main(void) {
 	double mayor1 = 2;
 	double menor2 = 3;
 	double mayor2 = 4;
-	int particiones = 1000;
 	double resultado;
 
 	//Variables usadas para la interpolación

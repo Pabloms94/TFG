@@ -2,7 +2,7 @@
  * @brief declaracion de la funcion
  *
  * @file funcion.h
- * @author Pablo Martín
+ * @author Pablo Martin
  */
 
 #ifndef FUNCION_H_
