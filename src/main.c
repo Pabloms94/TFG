@@ -39,7 +39,7 @@ int main(void) {
 	double energiaInterpolar = 20;
 	double interpolacion;
 
-	FILE* f= fopen("../mu/mu74.csv","r");
+	FILE* f= fopen("../../mu/mu74.csv","r");
 
 		while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
 			printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
@@ -57,6 +57,7 @@ int main(void) {
 
 	create_objects(energia, atenuacion, i);
 
+	getchar();
 	return 0;
 }
 

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "CuTest.h"
 
@@ -11,6 +12,7 @@ void RunAllTests(void) {
 	CuSuiteAddSuite(suite, AddGetSuite());
 
 	CuSuiteRun(suite);
+
 	CuSuiteSummary(suite, output);
 	CuSuiteDetails(suite, output);
 	printf("%s\n", output->buffer);
@@ -18,4 +20,7 @@ void RunAllTests(void) {
 
 int main(void) {
 	RunAllTests();
+
+	getchar();
+	return 0;
 }

@@ -1,9 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 #include "CuTest.h"
 
+#include "../src/funcion.h"
 #include "../src/integrales.h"
 #include "../src/interpolacion.h"
+#include "../src/interpolacionBidimensional.h"
+
 
 #define eps 0.01
 
@@ -15,7 +20,7 @@ void TestIntegralBasica (CuTest* tc){
 	int particiones = 1000;
 	double resultado;
 
-	resultado = dobleIntegral(mayor1, menor1, mayor2, menor2, particiones);
+	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
 
 	CuAssertDblEquals(tc, 5.25, resultado, eps);
 }
@@ -29,10 +34,12 @@ void TestInterpolacion1 (CuTest* tc){
 	double energiaInterpolar = 1;
 	double interpolacion;
 
-	FILE* f= fopen("../mu/mu74.csv","r");
+
+	FILE* f= fopen("../../mu/mu74.csv","r");
 
 	while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
 			//printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
+
 			i++;
 	}
 	fclose(f);
@@ -51,7 +58,7 @@ void TestInterpolacion2 (CuTest* tc){
 	double energiaInterpolar = 5;
 	double interpolacion;
 
-	FILE* f= fopen("../mu/mu74.csv","r");
+	FILE* f= fopen("../../mu/mu74.csv","r");
 
 	while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
 			//printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
@@ -73,7 +80,7 @@ void TestInterpolacion3 (CuTest* tc){
 	double energiaInterpolar = 20;
 	double interpolacion;
 
-	FILE* f= fopen("../mu/mu74.csv","r");
+	FILE* f= fopen("../../mu/mu74.csv","r");
 
 	while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
 			//printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
@@ -95,7 +102,7 @@ void TestInterpolacion4 (CuTest* tc){
 	double energiaInterpolar = 1500;
 	double interpolacion;
 
-	FILE* f= fopen("../mu/mu74.csv","r");
+	FILE* f= fopen("../../mu/mu74.csv","r");
 
 	while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
 			//printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
@@ -108,6 +115,39 @@ void TestInterpolacion4 (CuTest* tc){
 	CuAssertDblEquals(tc, 0.05, interpolacion, eps);
 
 }
+
+void TestInterpolacion2D1 (CuTest* tc){
+	double x1a[10], x2a[10], **y, resultado;
+	int i, j, k,l;
+
+	y = (double **) malloc (10 * (sizeof (double*)));
+
+	    for (i=0; i<10; i++) {
+	         *(y+i) = (double * ) malloc (10 * (sizeof(double)));
+	          if (*(y+i) == NULL) {
+	                           for(j=i-1; j >=0 ; j--)
+	                               free(*(y+j));
+	                           free(y);
+	                           }
+	                           }
+
+	for (i = 0; i<10; i++){
+		x1a[i] = i;
+		x2a[i] = i;
+		for(j = 0; j < 10; j++)
+			y[i][j] = j;
+	}
+
+	resultado = interpolar2D (x1a, x2a, y, 10, 10, 2.5, 7.5);
+
+	CuAssertDblEquals(tc, 7.5, resultado, eps);
+
+    for(i=0; i < 10; i++)
+        free(y[i]);
+    free (y);
+
+}
+
 CuSuite* AddGetSuite(void){
 	CuSuite* suite = CuSuiteNew();
 
@@ -116,6 +156,7 @@ CuSuite* AddGetSuite(void){
 	SUITE_ADD_TEST(suite, TestInterpolacion2);
 	SUITE_ADD_TEST(suite, TestInterpolacion3);
 	SUITE_ADD_TEST(suite, TestInterpolacion4);
+	SUITE_ADD_TEST(suite, TestInterpolacion2D1);
 
 	return suite;
 }
