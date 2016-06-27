@@ -19,7 +19,7 @@
  * @param x1 es un entero que indica el valor de la coordenada X para la cual se va a buscar Z.
  * @param x2 es un entero que indica el valor de la coordenada Y para la cual se va a buscar Z.
  */
-double interpolar2D(double* x1a, double* x2a, double** y, int n1, int n2, double x1, double x2);
-
+double interpolar2D(double* x1a, double* x2a, double** y, int n1, int n2,
+		double x1, double x2);
 
 #endif /* INTERPOLACIONBIDIMENSIONAL_H_ */

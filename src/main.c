@@ -5,6 +5,7 @@
 #include "integrales.h"
 #include "interpolacion.h"
 #include "funcion.h"
+#include "lecturaUnidimensional.h"
 
 /*
  * @author Pablo Martin Sanchez
@@ -27,35 +28,45 @@ int main(void) {
 	double mayor2 = 4;
 	double resultado;
 
-	//Variables usadas para la interpolación
-	/*float x[] = {-3, -2, 0, 4};
-	float y[] = {5, 8, 4, 2};
-	*/
-
 	double energia[60];
 	double atenuacion[60];
 	double absorcion[60];
-	int i = 0;
+	int i = 0, j;
 	double energiaInterpolar = 20;
 	double interpolacion;
 
-	FILE* f= fopen("../../mu/mu74.csv","r");
+	FILE* f = fopen("../../mu/mu74.csv", "r");
 
-		while (fscanf(f,"%lg,%lg,%lg\n",&energia[i],&atenuacion[i],&absorcion[i])!=EOF){
-			printf("Lectura: a=%lf, b=%lf,c=%lf\n",energia[i],atenuacion[i],absorcion[i]);
-			i++;
+	while (fscanf(f, "%lg,%lg,%lg\n", &energia[i], &atenuacion[i],
+			&absorcion[i]) != EOF) {
+		printf("Lectura: a=%lf, b=%lf,c=%lf\n", energia[i], atenuacion[i],
+				absorcion[i]);
+		i++;
 	}
 	fclose(f);
 
 	//Integrales
 	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
-	printf ("RESULTADO INTEGRALES: %lg.\n\n", resultado);
+	printf("RESULTADO INTEGRALES: %lg.\n\n", resultado);
 
 	//Interpolación
-	interpolacion = lagrange (energiaInterpolar, energia, atenuacion, i);
-	printf ("RESULTADO INTERPOLACIÓN: %lg.\n\n", interpolacion);
+	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
+	printf("RESULTADO INTERPOLACIÓN: %lg.\n\n", interpolacion);
 
 	create_objects(energia, atenuacion, i);
+
+	double mat[5][5];
+	int lim = lectura1D("../../mu/mu74.csv", 5, 5, mat);
+
+	printf("MAIN y lim es %d\n", lim);
+	for(i=0; i<2; i++)
+	    {
+	        for(j=0; j<lim; j++)
+	        {
+	            printf("%lf ", mat[i][j]);
+	        }
+	        printf("\n");
+	    }
 
 	getchar();
 	return 0;
@@ -68,25 +79,24 @@ int main(void) {
  * @param i indica el numero de elementos de los arrays
  */
 
-void create_objects(double *x, double *y, int i)
-{
+void create_objects(double *x, double *y, int i) {
 	FILE *fp;
 	cJSON *root;
 	char *out;
 
-	fp = fopen ("x.json", "w");
+	fp = fopen("x.json", "w");
 
-	root = cJSON_CreateDoubleArray(x,i);
-	out=cJSON_Print(root);
+	root = cJSON_CreateDoubleArray(x, i);
+	out = cJSON_Print(root);
 	fputs(out, fp);
 	cJSON_Delete(root);
 	free(out);
 	fclose(fp);
 
 	fp = fopen("y.json", "w");
-	root = cJSON_CreateDoubleArray(y,i);
+	root = cJSON_CreateDoubleArray(y, i);
 
-	out=cJSON_Print(root);
+	out = cJSON_Print(root);
 	fputs(out, fp);
 	cJSON_Delete(root);
 	free(out);
