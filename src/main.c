@@ -1,3 +1,7 @@
+/*
+ * @author Pablo Martin Sanchez
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,10 +10,12 @@
 #include "interpolacion.h"
 #include "funcion.h"
 #include "lecturaUnidimensional.h"
+#include "lecturaBidimensional.h"
 
-/*
- * @author Pablo Martin Sanchez
- */
+
+double mu[500][500];
+double csda[2][500];
+double muGrid[2][500];
 
 void create_objects(double *x, double *y, int i);
 
@@ -55,19 +61,37 @@ int main(void) {
 
 	create_objects(energia, atenuacion, i);
 
-	double mat[5][5];
-	int lim = lectura1D("../../mu/mu74.csv", 5, 5, mat);
+	/*int lim = lectura1D("../data/mu/4.csv", 2, 500, mu);
 
-	printf("MAIN y lim es %d\n", lim);
 	for(i=0; i<2; i++)
 	    {
 	        for(j=0; j<lim; j++)
 	        {
-	            printf("%lf ", mat[i][j]);
+	            printf("%lf ", mu[i][j]);
 	        }
 	        printf("\n");
 	    }
 
+	int lim = lectura2D("../data/fluence/20.csv", 2, 500, muGrid, mu);
+	printf("GRID\n");
+	for(i=0; i<2; i++)
+	    {
+	        for(j=0; j<lim; j++)
+	        {
+	            printf("%lf ", muGrid[i][j]);
+	        }
+	        printf("\n");
+	    }
+
+	printf("MATRIZ\n");
+		for(i=0; i<18; i++)
+		    {
+		        for(j=0; j<200; j++)
+		        {
+		            printf("%lf ", mu[i][j]);
+		        }
+		        printf("\n");
+		    }*/
 	getchar();
 	return 0;
 }

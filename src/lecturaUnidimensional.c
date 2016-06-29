@@ -19,7 +19,7 @@ int lectura1D(char *path, int row, int col, double mat[row][col]) {
 	pch = strtok(string1, ",");
 	while (pch != NULL) {
 		columns++;
-		printf("The token is:  %s\n", pch);
+		printf("The token %d is:  %s\n",columns, pch);
 		mat[0][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
@@ -28,10 +28,12 @@ int lectura1D(char *path, int row, int col, double mat[row][col]) {
 	pch = strtok(string2, ",");
 	while (pch != NULL) {
 		columns++;
-		printf("The token2 is:  %s\n", pch);
+		printf("The token2 %d is:  %s\n", columns, pch);
 		mat[1][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
+
+	fclose(f);
 
 	return columns;
 }
