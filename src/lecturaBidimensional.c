@@ -4,7 +4,7 @@
 
 int lectura2D(char *path, int row, int col, double grid[row][col], double mat[col][col]){
 	char string1[5000];
-	char string2[1000];
+	char string2[5000];
 	char *pch, gridPath[100], add[100] = "grid.csv";
 	int columns1 = 0, columns2 = 0, length, i= 0, j = 0;
 

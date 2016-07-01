@@ -3,8 +3,8 @@
 #include <string.h>
 
 int lectura1D(char *path, int row, int col, double mat[row][col]) {
-	char string1[500];
-	char string2[500];
+	char string1[5000];
+	char string2[5000];
 	char *pch;
 	int columns = 0;
 

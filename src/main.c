@@ -12,10 +12,26 @@
 #include "lecturaUnidimensional.h"
 #include "lecturaBidimensional.h"
 
+struct Data1D{
+	double data[2][500];
+	int col;
+};
 
-double mu[500][500];
-double csda[2][500];
-double muGrid[2][500];
+struct Data2D{
+	double grid[2][500];
+	double data[500][500];
+	int row, col;
+};
+
+struct Data1D mu;
+struct Data1D csda;
+struct Data2D fluence;
+
+double Xmax = 0.6;
+double E0 = 100;
+double Ey = 50;
+double Theta = 12;
+double Phi = 0;
 
 void create_objects(double *x, double *y, int i);
 

@@ -34,10 +34,15 @@ OBJECTSFORTESTS = $(filter-out $(BUILDDIR)/main.o,$(OBJECTS))
 
 
 #comportamiento por defecto: generar ejecutable y tests
-all: dir $(BUILDDIR)/$(EXECUTABLE) $(BUILDDIR)/$(TESTEXECUTABLE)
+all: dir data $(BUILDDIR)/$(EXECUTABLE) $(BUILDDIR)/$(TESTEXECUTABLE)
 
 dir:
 	mkdir -p $(BUILDDIR)
+	
+#Se copia la carpeta data en el directorio que contendrA el ejecutable.
+data:
+	cp -r data $(BUILDDIR)
+
 
 #se puede pedir generar documentaciOn con make doc	
 doc:
@@ -63,4 +68,4 @@ clean:
 	rm -rf $(DOCDIR)
 	
 #Nombres especiales
-.PHONY: clean all dir doc
+.PHONY: clean all dir doc data
