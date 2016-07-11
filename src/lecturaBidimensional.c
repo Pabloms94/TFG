@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "structs.h"
 
-int lectura2D(char *path, int row, int col, double grid[row][col], double mat[col][col]){
+int lectura2D(char *path, struct Data2D *myStruct){
 	char string1[5000];
 	char string2[5000];
 	char *pch, gridPath[100], add[100] = "grid.csv";
@@ -32,7 +33,7 @@ int lectura2D(char *path, int row, int col, double grid[row][col], double mat[co
 	pch = strtok(string1, ",");
 	while (pch != NULL) {
 		columns1++;
-		grid[0][columns1 - 1] = atof(pch);
+		myStruct->grid[0][columns1 - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
 
@@ -40,7 +41,7 @@ int lectura2D(char *path, int row, int col, double grid[row][col], double mat[co
 	pch = strtok(string2, ",");
 	while (pch != NULL) {
 		columns1++;
-		grid[1][columns1 - 1] = atof(pch);
+		myStruct->grid[1][columns1 - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
 
@@ -55,12 +56,14 @@ int lectura2D(char *path, int row, int col, double grid[row][col], double mat[co
 		while (pch != NULL) {
 			j++;
 			printf("The token %d%d is:  %s\n",i, j-1, pch);
-			mat[i][j - 1] = atof(pch);
+			myStruct->data[i][j - 1] = atof(pch);
 			pch = strtok(NULL, " ,");
 		}
 		i++;
 	}
 
+	myStruct->col = j;
+	myStruct->row = i;
 	fclose(f);
 
 	return columns1;

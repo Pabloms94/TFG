@@ -20,6 +20,6 @@
  * @param mat es la matriz en la cual se introduciran los datos leidos.
  */
 
-int lectura2D(char *path, int row, int col, double grid[row][col], double mat[col][col]);
+int lectura2D(char *path, struct Data2D *myStruct);
 
 #endif /* LECTURABIDIMENSIONAL_H_ */

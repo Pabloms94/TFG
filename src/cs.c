@@ -1,14 +1,10 @@
 #include <stdio.h>
 #include "interpolacionBidimensional.h"
-
-struct Data2D{
-	double grid[2][500];
-	double data[500][500];
-	int row, col;
-};
+#include "structs.h"
 
 double cs(double eg, double u) {
 	extern struct Data2D fluence;
+	extern double E0;
 	double X[500], Y[500];
 	double **Z;
 	int i, j;

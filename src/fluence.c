@@ -1,27 +1,22 @@
 #include <stdio.h>
 #include "interpolacionBidimensional.h"
-
-struct Data2D{
-	double grid[2][500];
-	double data[500][500];
-	int row, col;
-};
+#include "structs.h"
 
 double fluence(double x, double u) {
-	extern struct Data2D fluence;
+	extern struct Data2D fluenceS;
 	double X[500], Y[500];
 	double **Z;
 	int i, j;
 
-	for (i = 0; i < fluence.row; i++)
-		X[i] = fluence.grid[0][i];
-	for (i = 0; i < fluence.col; i++)
-		Y[i] = fluence.grid[1][i];
+	for (i = 0; i < fluenceS.row; i++)
+		X[i] = fluenceS.grid[0][i];
+	for (i = 0; i < fluenceS.col; i++)
+		Y[i] = fluenceS.grid[1][i];
 
-	Z = (double **) malloc(fluence.row * (sizeof(double*)));
+	Z = (double **) malloc(fluenceS.row * (sizeof(double*)));
 
-	for (i = 0; i < fluence.row; i++) {
-		*(Z + i) = (double *) malloc(fluence.col * (sizeof(double)));
+	for (i = 0; i < fluenceS.row; i++) {
+		*(Z + i) = (double *) malloc(fluenceS.col * (sizeof(double)));
 		if (*(Z + i) == NULL) {
 			for (j = i - 1; j >= 0; j--)
 				free(*(Z + j));
@@ -29,10 +24,10 @@ double fluence(double x, double u) {
 		}
 	}
 
-	for (i = 0; i < fluence.row; i++) {
-		for (j = 0; j < fluence.col; j++)
-			Z[i][j] = fluence.data[i][j];
+	for (i = 0; i < fluenceS.row; i++) {
+		for (j = 0; j < fluenceS.col; j++)
+			Z[i][j] = fluenceS.data[i][j];
 	}
 
-	return interpolar2D(X, Y, Z, fluence.row, fluence.col, x, u);
+	return interpolar2D(X, Y, Z, fluenceS.row, fluenceS.col, x, u);
 }

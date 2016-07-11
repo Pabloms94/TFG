@@ -11,21 +11,11 @@
 #include "funcion.h"
 #include "lecturaUnidimensional.h"
 #include "lecturaBidimensional.h"
+#include "structs.h"
 
-struct Data1D{
-	double data[2][500];
-	int col;
-};
-
-struct Data2D{
-	double grid[2][500];
-	double data[500][500];
-	int row, col;
-};
-
-struct Data1D mu;
-struct Data1D csda;
-struct Data2D fluence;
+struct Data1D muS;
+struct Data1D csdaS;
+struct Data2D fluenceS;
 
 double Xmax = 0.6;
 double E0 = 100;
@@ -87,27 +77,27 @@ int main(void) {
 	        }
 	        printf("\n");
 	    }
-
-	int lim = lectura2D("../data/fluence/20.csv", 2, 500, muGrid, mu);
+*/
+	int lim = lectura2D("../data/fluence/20.csv", &fluenceS);
 	printf("GRID\n");
 	for(i=0; i<2; i++)
 	    {
 	        for(j=0; j<lim; j++)
 	        {
-	            printf("%lf ", muGrid[i][j]);
+	            printf("%lf ", fluenceS.grid[i][j]);
 	        }
 	        printf("\n");
 	    }
 
 	printf("MATRIZ\n");
-		for(i=0; i<18; i++)
+		for(i=0; i<fluenceS.row; i++)
 		    {
-		        for(j=0; j<200; j++)
+		        for(j=0; j<fluenceS.col; j++)
 		        {
-		            printf("%lf ", mu[i][j]);
+		            printf("%lf ", fluenceS.data[i][j]);
 		        }
 		        printf("\n");
-		    }*/
+		    }
 	getchar();
 	return 0;
 }
