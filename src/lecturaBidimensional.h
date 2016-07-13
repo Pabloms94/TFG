@@ -5,6 +5,8 @@
  * @author Pablo Martin
  */
 
+#include "structs.h"
+
 #ifndef LECTURABIDIMENSIONAL_H_
 #define LECTURABIDIMENSIONAL_H_
 
@@ -20,6 +22,6 @@
  * @param mat es la matriz en la cual se introduciran los datos leidos.
  */
 
-int lectura2D(char *path, struct Data2D *myStruct);
+int lectura2D(char *path, Data2D *myStruct);
 
 #endif /* LECTURABIDIMENSIONAL_H_ */

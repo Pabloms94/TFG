@@ -5,6 +5,8 @@
  * @author Pablo Martin
  */
 
+#include "structs.h"
+
 #ifndef LECTURAUNIDIMENSIONAL_H_
 #define LECTURAUNIDIMENSIONAL_H_
 
@@ -17,6 +19,6 @@
  * @param mat es la matriz en la cual se introduciran los datos leidos.
  */
 
-int lectura1D(char *path, int row, int col, double mat[row][col]);
+int lectura1D(char *path, Data1D *myStruct);
 
 #endif /* LECTURAUNIDIMENSIONAL_H_ */

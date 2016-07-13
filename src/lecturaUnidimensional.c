@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-int lectura1D(char *path, int row, int col, double mat[row][col]) {
+#include "structs.h"
+
+int lectura1D(char *path, Data1D *myStruct) {
 	char string1[5000];
 	char string2[5000];
 	char *pch;
@@ -19,8 +21,8 @@ int lectura1D(char *path, int row, int col, double mat[row][col]) {
 	pch = strtok(string1, ",");
 	while (pch != NULL) {
 		columns++;
-		printf("The token %d is:  %s\n",columns, pch);
-		mat[0][columns - 1] = atof(pch);
+		//printf("The token %d is:  %s\n",columns, pch);
+		myStruct->data[0][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
 
@@ -28,8 +30,8 @@ int lectura1D(char *path, int row, int col, double mat[row][col]) {
 	pch = strtok(string2, ",");
 	while (pch != NULL) {
 		columns++;
-		printf("The token2 %d is:  %s\n", columns, pch);
-		mat[1][columns - 1] = atof(pch);
+		//printf("The token2 %d is:  %s\n", columns, pch);
+		myStruct->data[1][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
 

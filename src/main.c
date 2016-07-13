@@ -12,97 +12,53 @@
 #include "lecturaUnidimensional.h"
 #include "lecturaBidimensional.h"
 #include "structs.h"
-
-struct Data1D muS;
-struct Data1D csdaS;
-struct Data2D fluenceS;
-
-double Xmax = 0.6;
-double E0 = 100;
-double Ey = 50;
-double Theta = 12;
-double Phi = 0;
+#include "llenar.h"
 
 void create_objects(double *x, double *y, int i);
 
 /**
  * @brief main
- * @param menor hace referecia al extremo inferior de las integrales.
- * @param mayor hace referecia al extremo superior de las integrales.
- * @warning uno y dos situado en el nombre de los parametros diferencia si los extremos pertenecen a la integral externa o interna.
  */
 
 int main(void) {
-	//Variables usadas para las integrales.
-	double menor1 = 1;
-	double mayor1 = 2;
-	double menor2 = 3;
-	double mayor2 = 4;
-	double resultado;
+	//int i, j;
+	lectura1D("data/csda/74.csv", &csdaS);
 
-	double energia[60];
-	double atenuacion[60];
-	double absorcion[60];
-	int i = 0, j;
-	double energiaInterpolar = 20;
-	double interpolacion;
+	/*for (i =0; i<2;i++){
+		for (j= 0; j<csdaS.col; j++){
+			printf("%lf ", csdaS.data[i][j]);
+		}
+		printf("\n");
+	}*/
 
-	FILE* f = fopen("../../mu/mu74.csv", "r");
+	lectura1D("data/mu/74.csv", &muS);
 
-	while (fscanf(f, "%lg,%lg,%lg\n", &energia[i], &atenuacion[i],
-			&absorcion[i]) != EOF) {
-		printf("Lectura: a=%lf, b=%lf,c=%lf\n", energia[i], atenuacion[i],
-				absorcion[i]);
-		i++;
+	/*for (i =0; i<2;i++){
+		for (j= 0; j<muS.col; j++){
+			printf("%lf ", muS.data[i][j]);
+		}
+		printf("\n");
+	}*/
+
+	lectura2D("data/fluence/100.csv", &fluenceS);
+
+	/*for (i =0; i<fluenceS.row;i++){
+		printf("%lf ", fluenceS.grid[0][i]);
 	}
-	fclose(f);
 
-	//Integrales
-	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
-	printf("RESULTADO INTEGRALES: %lg.\n\n", resultado);
+	printf("\n");
 
-	//Interpolación
-	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
-	printf("RESULTADO INTERPOLACIÓN: %lg.\n\n", interpolacion);
+	for (j= 0; j<fluenceS.col; j++){
+		printf("%lf ", fluenceS.grid[1][j]);
+	}*/
 
-	create_objects(energia, atenuacion, i);
+	dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
 
-	/*int lim = lectura1D("../data/mu/4.csv", 2, 500, mu);
-
-	for(i=0; i<2; i++)
-	    {
-	        for(j=0; j<lim; j++)
-	        {
-	            printf("%lf ", mu[i][j]);
-	        }
-	        printf("\n");
-	    }
-*/
-	int lim = lectura2D("../data/fluence/20.csv", &fluenceS);
-	printf("GRID\n");
-	for(i=0; i<2; i++)
-	    {
-	        for(j=0; j<lim; j++)
-	        {
-	            printf("%lf ", fluenceS.grid[i][j]);
-	        }
-	        printf("\n");
-	    }
-
-	printf("MATRIZ\n");
-		for(i=0; i<fluenceS.row; i++)
-		    {
-		        for(j=0; j<fluenceS.col; j++)
-		        {
-		            printf("%lf ", fluenceS.data[i][j]);
-		        }
-		        printf("\n");
-		    }
 	getchar();
 	return 0;
 }
 
-/*
+/**
  * @brief create_objects crea archivos json para exportar los datos a java
  * @param x es el vector de energía que se representara en el eje de las X
  * @param y es el vector de atenuacion que se representara en el eje de las Y

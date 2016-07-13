@@ -3,7 +3,7 @@
 #include <string.h>
 #include "structs.h"
 
-int lectura2D(char *path, struct Data2D *myStruct){
+int lectura2D(char *path, Data2D *myStruct){
 	char string1[5000];
 	char string2[5000];
 	char *pch, gridPath[100], add[100] = "grid.csv";
@@ -55,7 +55,6 @@ int lectura2D(char *path, struct Data2D *myStruct){
 		pch = strtok(string1, ",");
 		while (pch != NULL) {
 			j++;
-			printf("The token %d%d is:  %s\n",i, j-1, pch);
 			myStruct->data[i][j - 1] = atof(pch);
 			pch = strtok(NULL, " ,");
 		}
