@@ -13,6 +13,7 @@
 #include "lecturaBidimensional.h"
 #include "structs.h"
 #include "llenar.h"
+#include "fuente.h"
 
 void create_objects(double *x, double *y, int i);
 
@@ -21,7 +22,11 @@ void create_objects(double *x, double *y, int i);
  */
 
 int main(void) {
-	//int i, j;
+	int i, j;
+	double resultado;
+
+	printf("\n\nINICIO LECTURA\n\n");
+
 	lectura1D("data/csda/74.csv", &csdaS);
 
 	/*for (i =0; i<2;i++){
@@ -52,7 +57,13 @@ int main(void) {
 		printf("%lf ", fluenceS.grid[1][j]);
 	}*/
 
-	dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
+	lectura2D("data/cs/74.csv", &csS);
+
+	printf("\n\nFIN LECTURA\n\n");
+
+	resultado = dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
+
+	printf("\n\nEl resultado es: %lf\n\n", resultado);
 
 	getchar();
 	return 0;

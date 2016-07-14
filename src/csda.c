@@ -2,7 +2,6 @@
 #include "structs.h"
 
 double csda(double energy) {
-	extern struct Data1D csdaS;
 	double x[500], y[500];
 	int i, j;
 

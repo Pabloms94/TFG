@@ -12,8 +12,8 @@ int lectura1D(char *path, Data1D *myStruct) {
 
 	FILE *f = fopen(path, "r");
 
-	fgets(string1, 500, f);
-	fgets(string2, 500, f);
+	fgets(string1, 5000, f);
+	fgets(string2, 5000, f);
 
 	printf("%s\n", string1);
 	printf("%s\n", string2);

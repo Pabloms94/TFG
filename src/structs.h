@@ -28,5 +28,6 @@ extern double Phi;
 extern Data1D muS;
 extern Data1D csdaS;
 extern Data2D fluenceS;
+extern Data2D csS;
 
 #endif /* STRUCTS_H_ */

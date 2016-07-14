@@ -1,10 +1,12 @@
 #include "interpolacion.h"
 #include "csda.h"
 #include "structs.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 double mu(double energy) {
-	extern struct Data1D muS;
-	extern double E0;
 	double x[500], y[500];
 	int i, j;
 

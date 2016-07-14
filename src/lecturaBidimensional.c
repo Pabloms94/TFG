@@ -27,8 +27,8 @@ int lectura2D(char *path, Data2D *myStruct){
 
 	FILE *f = fopen(gridPath, "r");
 
-	fgets(string1, 500, f);
-	fgets(string2, 500, f);
+	fgets(string1, 5000, f);
+	fgets(string2, 5000, f);
 
 	pch = strtok(string1, ",");
 	while (pch != NULL) {

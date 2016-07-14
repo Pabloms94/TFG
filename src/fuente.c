@@ -3,9 +3,13 @@
 #include "mu.h"
 #include "structs.h"
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 double fuente(double x, double u) {
 
-	return fluence(x, u) * cs(Ey, u) * exp(mu(Ey) * (1/sin(Phi)) * (1/sin(Theta)));
+	printf("\n\nFUENTE x = %lf, u = %lf\n\n");
+
+	return (fluence(x, u) * cs(Ey, u) * exp(mu(Ey) * (1/sin(Phi)) * (1/sin(Theta))));
 }
 
