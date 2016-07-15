@@ -37,6 +37,8 @@ int lectura1D(char *path, Data1D *myStruct) {
 
 	fclose(f);
 
+	myStruct->col = columns;
+
 	return columns;
 }
 

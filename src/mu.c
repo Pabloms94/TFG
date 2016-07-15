@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 double mu(double energy) {
-	double x[500], y[500];
+	double x[500], y[500], r1, r2;
 	int i, j;
 
 	for (i = 0; i < 2; i++)
@@ -18,5 +18,7 @@ double mu(double energy) {
 				y[j] = muS.data[i][j];
 		}
 
-	return (lagrange(energy, x, y, muS.col) * csda(E0));
+	r1 = lagrange(energy, x, y, muS.col);
+	r2 = csda(E0);
+	return r1 * r2;
 }

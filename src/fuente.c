@@ -7,9 +7,14 @@
 #include <stdlib.h>
 
 double fuente(double x, double u) {
+	double r1, r2, r3, r4, r5;
 
-	printf("\n\nFUENTE x = %lf, u = %lf\n\n");
+	r1 = mu(Ey);
+	r2 = (1/sin(Phi));
+	r3 = (1/sin(Theta));
+	r4= exp( r1 * r2 * r3);
 
-	return (fluence(x, u) * cs(Ey, u) * exp(mu(Ey) * (1/sin(Phi)) * (1/sin(Theta))));
+
+	return fluence(x, u) * cs(Ey, u) * r4;
 }
 

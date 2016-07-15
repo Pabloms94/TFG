@@ -22,7 +22,6 @@ double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
 		for (j = 0; j < particiones; j++) {
 			verticeMenorX = menor2 + dx * j;
 			valorFuncion = (*f)(verticeMenorY, verticeMenorX);
-			printf("\n\nMenor1: %lf\n\n",valorFuncion);
 			area2 = valorFuncion * dx;
 			resultado2 += area2;
 		}

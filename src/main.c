@@ -21,41 +21,25 @@ void create_objects(double *x, double *y, int i);
  * @brief main
  */
 
-int main(void) {
+int main(int argc, char *argv[]) {
 	int i, j;
 	double resultado;
 
-	printf("\n\nINICIO LECTURA\n\n");
+	if (argc == 6){
+		printf("\nCORRECTO\n");
+		for(i=1; i<6; i++)
+			printf("\n%s\n", argv[i]);
+
+	}else
+		printf("\nFaltan argumentos: .exe + E0 + theta + phi + E_min + E_intervalo.\n");
+
+	/*printf("\n\nINICIO LECTURA\n\n");
 
 	lectura1D("data/csda/74.csv", &csdaS);
 
-	/*for (i =0; i<2;i++){
-		for (j= 0; j<csdaS.col; j++){
-			printf("%lf ", csdaS.data[i][j]);
-		}
-		printf("\n");
-	}*/
-
 	lectura1D("data/mu/74.csv", &muS);
 
-	/*for (i =0; i<2;i++){
-		for (j= 0; j<muS.col; j++){
-			printf("%lf ", muS.data[i][j]);
-		}
-		printf("\n");
-	}*/
-
 	lectura2D("data/fluence/100.csv", &fluenceS);
-
-	/*for (i =0; i<fluenceS.row;i++){
-		printf("%lf ", fluenceS.grid[0][i]);
-	}
-
-	printf("\n");
-
-	for (j= 0; j<fluenceS.col; j++){
-		printf("%lf ", fluenceS.grid[1][j]);
-	}*/
 
 	lectura2D("data/cs/74.csv", &csS);
 
@@ -63,9 +47,9 @@ int main(void) {
 
 	resultado = dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
 
-	printf("\n\nEl resultado es: %lf\n\n", resultado);
+	printf("\n\nEl resultado es: %lf\n\n", resultado);*/
 
-	getchar();
+	//getchar();
 	return 0;
 }
 
