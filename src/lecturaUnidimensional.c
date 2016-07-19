@@ -15,13 +15,9 @@ int lectura1D(char *path, Data1D *myStruct) {
 	fgets(string1, 5000, f);
 	fgets(string2, 5000, f);
 
-	printf("%s\n", string1);
-	printf("%s\n", string2);
-
 	pch = strtok(string1, ",");
 	while (pch != NULL) {
 		columns++;
-		//printf("The token %d is:  %s\n",columns, pch);
 		myStruct->data[0][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}
@@ -30,7 +26,6 @@ int lectura1D(char *path, Data1D *myStruct) {
 	pch = strtok(string2, ",");
 	while (pch != NULL) {
 		columns++;
-		//printf("The token2 %d is:  %s\n", columns, pch);
 		myStruct->data[1][columns - 1] = atof(pch);
 		pch = strtok(NULL, " ,");
 	}

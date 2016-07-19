@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "cJSON.h"
 #include "integrales.h"
 #include "interpolacion.h"
@@ -22,18 +23,28 @@ void create_objects(double *x, double *y, int i);
  */
 
 int main(int argc, char *argv[]) {
-	int i, j;
-	double resultado;
+	int i;
+	FILE *f;
+	char x[5000], y[5000], valorEy[20], valorRes[100], coma[3] = ",";
+	double eIntervalo = 5, resultado;
 
-	if (argc == 6){
-		printf("\nCORRECTO\n");
-		for(i=1; i<6; i++)
-			printf("\n%s\n", argv[i]);
+	printf("ANTES ASIGNACION\n\n");
 
-	}else
-		printf("\nFaltan argumentos: .exe + E0 + theta + phi + E_min + E_intervalo.\n");
+	if (argc != 6){
+		printf("\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
+		//return -1;
+	}
 
-	/*printf("\n\nINICIO LECTURA\n\n");
+	/*E0 = atof(argv[1]);
+	Theta = atof(argv[2]);
+	Phi = atof(argv[3]);
+	Ey = atof(argv[4]);
+	eIntervalo = atof(argv[5]);
+*/
+	printf("\n\nE0: %lf theta: %lf phi: %lf E_min: %lf E_intervalo: %lf\n\n", E0, Theta, Phi, Ey, eIntervalo);
+
+
+	printf("\n\nINICIO LECTURA\n\n");
 
 	lectura1D("data/csda/74.csv", &csdaS);
 
@@ -45,11 +56,29 @@ int main(int argc, char *argv[]) {
 
 	printf("\n\nFIN LECTURA\n\n");
 
-	resultado = dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
+	i=0;
+	while(Ey < E0){
+		sprintf(valorEy, "%lf", Ey);
+		printf("\n\nVALOR EY: %s.\n\n", valorEy);
+		strcat(x,valorEy);
+		resultado = dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
+		sprintf(valorRes, "%lf", resultado);
+		strcat(y,valorRes);
+		printf("\n\nEl resultado %d es: %lf\n\n", i,resultado);
+		if (Ey + eIntervalo < E0){
+			strcat(x,coma);
+			strcat(y,coma);
+		}
+		Ey += eIntervalo;
+		i++;
+	}
 
-	printf("\n\nEl resultado es: %lf\n\n", resultado);*/
+	f = fopen("results.csv", "w");
+	fprintf(f,"%s\n", x);
+	fprintf(f,"%s\n", y);
 
-	//getchar();
+	fclose(f);
+
 	return 0;
 }
 

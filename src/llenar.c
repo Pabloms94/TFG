@@ -9,13 +9,11 @@
 
 double Xmax = 0.6;
 double E0 = 100;
-double Ey = 50;
-double Theta = 12;
-double Phi = 0;
+double Ey = 5;
+double Theta = 0;
+double Phi = 12;
 
 Data1D csdaS;
 Data1D muS;
 Data2D fluenceS;
 Data2D csS;
-
-

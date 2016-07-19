@@ -50,17 +50,17 @@ doc:
 
 #Recordemos que $@ designa el objetivo y $^ todos los requisitos
 $(BUILDDIR)/$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 	
 $(BUILDDIR)/$(TESTEXECUTABLE): $(OBJECTSFORTESTS) $(TESTOBJECTS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 #Recordemos que $< designa el primer requisito
 $(OBJECTS): $(BUILDDIR)/%.o : $(SOURCEDIR)/%.c
-	$(CC) $(FLAGS) $< -o $@
+	$(CC) $< -o $@ $(FLAGS)
 	
 $(TESTOBJECTS): $(BUILDDIR)/%.o : $(TESTDIR)/%.c
-	$(CC) $(FLAGS) $< -o $@
+	$(CC) $< -o $@ $(FLAGS)
 	
 
 clean:

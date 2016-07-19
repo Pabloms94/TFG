@@ -66,9 +66,5 @@ int lectura2D(char *path, Data2D *myStruct){
 	fclose(f);
 
 	return columns1;
-
-	/*if (columns1 <= columns2)
-		return columns1;
-	else return columns2;*/
 }
 

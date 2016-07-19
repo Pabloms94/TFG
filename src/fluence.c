@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "interpolacionBidimensional.h"
 #include "structs.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 double fluence(double x, double u) {
 	double X[500], Y[500];

@@ -4,7 +4,7 @@
 double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
 		double mayor2, double menor2) {
 	int i, j;
-	int particiones = 100;
+	int particiones = 2;
 	double verticeMenorY, verticeMenorX;
 	double valorFuncion;
 	double area1, area2;
@@ -28,6 +28,7 @@ double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
 
 		area1 = resultado2 * dy;
 		resultado1 += area1;
+
 	}
 	printf("\n\nDENTRO INTEGRAL RESULTADO: %lf\n\n",resultado1);
 	return resultado1;
