@@ -15,7 +15,7 @@ typedef struct Data1D{
 
 typedef struct Data2D{
 	double grid[2][500];
-	double data[500][500];
+	double **data;
 	int row, col;
 }Data2D;
 

@@ -47,6 +47,21 @@ int lectura2D(char *path, Data2D *myStruct){
 
 	fclose(f);
 
+
+
+	myStruct->data = (double **) malloc(500 * (sizeof(double*)));
+
+	for (i = 0; i < 500; i++) {
+		*(myStruct->data + i) = (double *) malloc(500 * (sizeof(double)));
+		if (*(myStruct->data + i) == NULL) {
+			for (j = i - 1; j >= 0; j--)
+				free(*(myStruct->data + j));
+			free(myStruct->data);
+		}
+	}
+
+
+
 	f = fopen(path, "r");
 	i = 0;
 	while (feof(f) == 0){

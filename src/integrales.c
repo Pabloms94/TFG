@@ -30,6 +30,5 @@ double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
 		resultado1 += area1;
 
 	}
-	printf("\n\nDENTRO INTEGRAL RESULTADO: %lf\n\n",resultado1);
 	return resultado1;
 }

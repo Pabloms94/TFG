@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 		sprintf(valorEy, "%lf", Ey);
 		printf("\n\nVALOR EY: %s.\n\n", valorEy);
 		strcat(x,valorEy);
-		resultado = dobleIntegral(fuente, Xmax, 0, 1, Ey/E0);
+		resultado = dobleIntegral(fuente, Xmax, 0.1, 1, Ey/E0);
 		sprintf(valorRes, "%lf", resultado);
 		strcat(y,valorRes);
 		printf("\n\nEl resultado %d es: %lf\n\n", i,resultado);
