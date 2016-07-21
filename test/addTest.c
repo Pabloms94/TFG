@@ -3,7 +3,7 @@
 
 #include "CuTest.h"
 
-#include "../src/funcion.h"
+#include "../src/fuente.h"
 #include "../src/integrales.h"
 #include "../src/interpolacion.h"
 #include "../src/interpolacionBidimensional.h"
@@ -19,7 +19,7 @@ void TestIntegralBasica(CuTest* tc) {
 	double resultado;
 
 
-	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
+	resultado = dobleIntegral(fuente, mayor1, menor1, mayor2, menor2);
 
 	CuAssertDblEquals(tc, 5.25, resultado, eps);
 }
@@ -43,19 +43,19 @@ void TestInterpolacion1(CuTest* tc) {
 	}
 	fclose(f);
 
-	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
+	interpolacion = interpolar1D(energiaInterpolar, energia, atenuacion, i);
 	CuAssertDblEquals(tc, 3683.0, interpolacion, eps);
 
 	energiaInterpolar = 5;
-	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
+	interpolacion = interpolar1D(energiaInterpolar, energia, atenuacion, i);
 	CuAssertDblEquals(tc, 553.4, interpolacion, eps);
 
 	energiaInterpolar = 20;
-	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
+	interpolacion = interpolar1D(energiaInterpolar, energia, atenuacion, i);
 	CuAssertDblEquals(tc, 65.73, interpolacion, eps);
 
 	energiaInterpolar = 1500;
-	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
+	interpolacion = interpolar1D(energiaInterpolar, energia, atenuacion, i);
 	CuAssertDblEquals(tc, 0.05, interpolacion, eps);
 
 	for (i = 0; i < 10; i++) {
@@ -65,7 +65,7 @@ void TestInterpolacion1(CuTest* tc) {
 
 	energiaInterpolar = 0;
 	for (i= 0; i<10; i++){
-		interpolacion = lagrange(energiaInterpolar, x1a, x2a, 10);
+		interpolacion = interpolar1D(energiaInterpolar, x1a, x2a, 10);
 		CuAssertDblEquals(tc, energiaInterpolar, interpolacion, eps);
 		energiaInterpolar += 0.5;
 	}

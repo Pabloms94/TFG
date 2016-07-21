@@ -43,7 +43,6 @@ dir:
 data:
 	cp -r data $(BUILDDIR)
 
-
 #se puede pedir generar documentaciOn con make doc	
 doc:
 	doxygen $(DOXYFILE)
@@ -61,7 +60,6 @@ $(OBJECTS): $(BUILDDIR)/%.o : $(SOURCEDIR)/%.c
 	
 $(TESTOBJECTS): $(BUILDDIR)/%.o : $(TESTDIR)/%.c
 	$(CC) $< -o $@ $(FLAGS)
-	
 
 clean:
 	rm -f $(BUILDDIR)/*o $(BUILDDIR)/$(EXECUTABLE) $(BUILDDIR)/$(TESTEXECUTABLE)

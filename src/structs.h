@@ -8,16 +8,16 @@
 #ifndef STRUCTS_H_
 #define STRUCTS_H_
 
-typedef struct Data1D{
+typedef struct Data1D {
 	double data[2][500];
 	int col;
-}Data1D;
+} Data1D;
 
-typedef struct Data2D{
+typedef struct Data2D {
 	double grid[2][500];
 	double **data;
 	int row, col;
-}Data2D;
+} Data2D;
 
 extern double Xmax;
 extern double E0;

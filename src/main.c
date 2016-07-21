@@ -4,12 +4,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <string.h>
 #include "cJSON.h"
 #include "integrales.h"
-#include "interpolacion.h"
-#include "funcion.h"
 #include "lecturaUnidimensional.h"
 #include "lecturaBidimensional.h"
 #include "structs.h"
@@ -24,26 +20,22 @@ void create_objects(double *x, double *y, int i);
 
 int main(int argc, char *argv[]) {
 	int i;
-	FILE *f;
 	double eIntervalo = 5, resultado, x[500], y[500];
 
-	printf("ANTES ASIGNACION\n\n");
-
-	if (argc != 6){
-		printf("\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
+	if (argc != 6) {
+		printf(
+				"\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
 		//return -1;
 	}
 
 	/*E0 = atof(argv[1]);
-	Theta = atof(argv[2]);
-	Phi = atof(argv[3]);
-	Ey = atof(argv[4]);
-	eIntervalo = atof(argv[5]);
-*/
-	printf("\n\nE0: %lf theta: %lf phi: %lf E_min: %lf E_intervalo: %lf\n\n", E0, Theta, Phi, Ey, eIntervalo);
-
-
-	printf("\n\nINICIO LECTURA\n\n");
+	 Theta = atof(argv[2]);
+	 Phi = atof(argv[3]);
+	 Ey = atof(argv[4]);
+	 eIntervalo = atof(argv[5]);
+	 */
+	printf("\n\nE0: %lf theta: %lf phi: %lf E_min: %lf E_intervalo: %lf\n\n",
+			E0, Theta, Phi, Ey, eIntervalo);
 
 	lectura1D("data/csda/74.csv", &csdaS);
 
@@ -53,18 +45,16 @@ int main(int argc, char *argv[]) {
 
 	lectura2D("data/cs/74.csv", &csS);
 
-	printf("\n\nFIN LECTURA\n\n");
-
-	i=0;
-	while(Ey < E0){
+	i = 0;
+	while (Ey < E0) {
 		x[i] = Ey;
-		resultado = dobleIntegral(fuente, Xmax, 0.1, 1, Ey/E0);
+		resultado = dobleIntegral(fuente, Xmax, 0.1, 1, Ey / E0);
 		y[i] = resultado;
 		Ey += eIntervalo;
 		i++;
 	}
 
-	create_objects(x,y,i);
+	create_objects(x, y, i);
 
 	return 0;
 }

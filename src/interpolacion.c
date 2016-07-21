@@ -1,17 +1,16 @@
-double lagrange(double x, double X[], double Y[], int lit) {
-	double r = 0, num = 1, den = 1;
+double interpolar1D(double x, double X[], double Y[], int lit) {
+	double r = 0, y1, y2;
 	int i, j;
 
 	for (i = 0; i < lit; i++) {
-		for (j = 0; j < lit; j++) {
-			if (i != j) {
-				num *= (x - X[j]);
-				den *= (X[i] - X[j]);
-			}
-		}
-		num *= Y[i];
-		r += num / den;
-		num = den = 1;
+		if ((X[i] <= x) && (x <= X[i + 1]))
+			break;
 	}
+
+	y1 = Y[i];
+	y2 = Y[i + 1];
+
+	r = ((x - X[i]) / (X[i + 1] - X[i])) * (y2 - y1) + y1;
+
 	return r;
 }

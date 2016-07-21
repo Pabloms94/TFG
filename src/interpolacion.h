@@ -17,6 +17,6 @@
  * @param lit es un entero que indica el numero de elementos de los arrays anteriores.
  */
 
-double lagrange(double x, double X[], double Y[], int lit);
+double interpolar1D(double x, double X[], double Y[], int lit);
 
 #endif /* INTERPOLACION_H_ */

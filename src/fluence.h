@@ -8,7 +8,6 @@
 #ifndef FLUENCE_H_
 #define FLUENCE_H_
 
-
 /**
  * @brief fluence calcula la interpolaciOn bidimensional para el par de valores que recibe con los datos leIdos de fluence.
  * \n\n VARIABLES
@@ -18,7 +17,5 @@
  */
 
 double fluence(double x, double u);
-
-
 
 #endif /* FLUENCE_H_ */

@@ -3,24 +3,24 @@
 #include <string.h>
 #include "structs.h"
 
-int lectura2D(char *path, Data2D *myStruct){
+int lectura2D(char *path, Data2D *myStruct) {
 	char string1[5000];
 	char string2[5000];
 	char *pch, gridPath[100], add[100] = "grid.csv";
-	int columns1 = 0, columns2 = 0, length, i= 0, j = 0;
+	int columns1 = 0, columns2 = 0, length, i = 0, j = 0;
 
 	strcpy(gridPath, path);
 
 	length = strlen(gridPath) - 1;
-	for(i = length; i >= 0; i--){
-		if(gridPath[i] == '/'){
+	for (i = length; i >= 0; i--) {
+		if (gridPath[i] == '/') {
 			break;
 		}
 	}
 
-	length = i+2+strlen(add);
+	length = i + 2 + strlen(add);
 
-	for(i = i+1;i<length;i++){
+	for (i = i + 1; i < length; i++) {
 		gridPath[i] = add[j];
 		j++;
 	}
@@ -47,8 +47,6 @@ int lectura2D(char *path, Data2D *myStruct){
 
 	fclose(f);
 
-
-
 	myStruct->data = (double **) malloc(500 * (sizeof(double*)));
 
 	for (i = 0; i < 500; i++) {
@@ -60,13 +58,11 @@ int lectura2D(char *path, Data2D *myStruct){
 		}
 	}
 
-
-
 	f = fopen(path, "r");
 	i = 0;
-	while (feof(f) == 0){
-		fgets (string1, 5000, f);
-		j=0;
+	while (feof(f) == 0) {
+		fgets(string1, 5000, f);
+		j = 0;
 		pch = strtok(string1, ",");
 		while (pch != NULL) {
 			j++;
