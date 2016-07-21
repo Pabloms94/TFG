@@ -25,8 +25,7 @@ void create_objects(double *x, double *y, int i);
 int main(int argc, char *argv[]) {
 	int i;
 	FILE *f;
-	char x[5000], y[5000], valorEy[20], valorRes[100], coma[3] = ",";
-	double eIntervalo = 5, resultado;
+	double eIntervalo = 5, resultado, x[500], y[500];
 
 	printf("ANTES ASIGNACION\n\n");
 
@@ -58,26 +57,14 @@ int main(int argc, char *argv[]) {
 
 	i=0;
 	while(Ey < E0){
-		sprintf(valorEy, "%lf", Ey);
-		printf("\n\nVALOR EY: %s.\n\n", valorEy);
-		strcat(x,valorEy);
+		x[i] = Ey;
 		resultado = dobleIntegral(fuente, Xmax, 0.1, 1, Ey/E0);
-		sprintf(valorRes, "%lf", resultado);
-		strcat(y,valorRes);
-		printf("\n\nEl resultado %d es: %lf\n\n", i,resultado);
-		if (Ey + eIntervalo < E0){
-			strcat(x,coma);
-			strcat(y,coma);
-		}
+		y[i] = resultado;
 		Ey += eIntervalo;
 		i++;
 	}
 
-	f = fopen("results.csv", "w");
-	fprintf(f,"%s\n", x);
-	fprintf(f,"%s\n", y);
-
-	fclose(f);
+	create_objects(x,y,i);
 
 	return 0;
 }

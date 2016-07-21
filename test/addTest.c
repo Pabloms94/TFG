@@ -18,6 +18,7 @@ void TestIntegralBasica(CuTest* tc) {
 	int particiones = 1000;
 	double resultado;
 
+
 	resultado = dobleIntegral(funcion, mayor1, menor1, mayor2, menor2);
 
 	CuAssertDblEquals(tc, 5.25, resultado, eps);
@@ -30,6 +31,7 @@ void TestInterpolacion1(CuTest* tc) {
 	int i = 0;
 	double energiaInterpolar = 1;
 	double interpolacion;
+	double x1a[10], x2a[10];
 
 	FILE* f = fopen("../../mu/mu74.csv", "r");
 
@@ -55,6 +57,18 @@ void TestInterpolacion1(CuTest* tc) {
 	energiaInterpolar = 1500;
 	interpolacion = lagrange(energiaInterpolar, energia, atenuacion, i);
 	CuAssertDblEquals(tc, 0.05, interpolacion, eps);
+
+	for (i = 0; i < 10; i++) {
+		x1a[i] = i;
+		x2a[i] = i;
+	}
+
+	energiaInterpolar = 0;
+	for (i= 0; i<10; i++){
+		interpolacion = lagrange(energiaInterpolar, x1a, x2a, 10);
+		CuAssertDblEquals(tc, energiaInterpolar, interpolacion, eps);
+		energiaInterpolar += 0.5;
+	}
 }
 
 void TestInterpolacion2D1(CuTest* tc) {
