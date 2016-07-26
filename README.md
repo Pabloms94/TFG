@@ -17,7 +17,7 @@ No es necesario ningún requisito especial.
     * La otra para la parte de Java. La llamaremos XpectraJ.
   1. En la carpeta llamada XpectraC colocaremos todo el contenido nombrado anteriormente en la sección de preparación.
   1. En la carteta XpectraJ introduciremos toda la parte de la interfaz en Java, situada en el repositorio "Interfaz".
-  
+![picture alt ](https://github.com/Pabloms94/TFG/tree/master/Images/1.png)
 2. Hecho ésto, podemos ejecutar el comando make desde nuestra terminal situada en el directorio ../X-pectra/XpectraC. De esta manera se nos creará automáticamente una carpeta llamada build que contendrá todos los objetos creados y el ejecutable. 
 3. Si deseamos ejecutar el programa por linea de comando basta con entrar a dicha carpeta (build), y utilizar el comando de ejecución:
   3. XpectraC.exe + 5 argumentos:
