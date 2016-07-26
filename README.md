@@ -35,7 +35,7 @@ No es necesario ningún requisito especial.
     * Phi: ángulo en grados.
     * Ey: valor mínimo del intervalo donde calcularemos el espectro.
     * Intervalo: unidades que separarán un valor de X del siguiente.
-  Si lo hacemos correctamente, se generarán dos ficheros en formato JSON con los valores de la función (X, Y).
+  * Si lo hacemos correctamente, se generarán dos ficheros en formato JSON con los valores de la función (X, Y).
 
 ![ScreenShot](/Images/4.png)
 
