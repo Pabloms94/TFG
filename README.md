@@ -11,7 +11,7 @@ Programa en lenguaje C que contendrá todos los cálculos numéricos para genera
 No es necesario ningún requisito especial.
 
 ##Instalación
-1. Crearemos una carpeta que podemos llamar X-pectra, por ejemplo. Aquí reuniremos todo lo necesario para el funcionamiento completo de la aplicación. El nombre no es importante.
+1. Crearemos una carpeta que podemos llamar X-pectra, por ejemplo, si no lo has hecho ya. Aquí reuniremos todo lo necesario para el funcionamiento completo de la aplicación. El nombre no es importante.
   1. En ella tendremos que crear 2 carpetas: 
     * Una para la parte de C, en la que estamos. La llamaremos XpectraC.
     * La otra para la parte de Java. La llamaremos XpectraJ.
