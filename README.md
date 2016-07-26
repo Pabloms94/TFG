@@ -20,7 +20,12 @@ No es necesario ningún requisito especial.
 
 ![ScreenShot](/Images/1.png)
 
+![ScreenShot](/Images/2.png)
+
 2. Hecho ésto, podemos ejecutar el comando make desde nuestra terminal situada en el directorio ../X-pectra/XpectraC. De esta manera se nos creará automáticamente una carpeta llamada build que contendrá todos los objetos creados y el ejecutable. 
+
+![ScreenShot](/Images/3.png)
+
 3. Si deseamos ejecutar el programa por linea de comando basta con entrar a dicha carpeta (build), y utilizar el comando de ejecución:
   3. XpectraC.exe + 5 argumentos:
     * E0: referente al valor máximo sobre el cual calcularemos nuestro espectro.
@@ -29,7 +34,13 @@ No es necesario ningún requisito especial.
     * Ey: valor mínimo del intervalo donde calcularemos el espectro.
     * Intervalo: unidades que separarán un valor de X del siguiente.
   3. Si lo hacemos correctamente, se generarán dos ficheros en formato JSON con los valores de la función (X, Y).
-  
+
+![ScreenShot](/Images/4.png)
+
+![ScreenShot](/Images/5.png)
+
+![ScreenShot](/Images/6.png)
+
 ##Tests
 Si queremos ver los test que ha ido realizando el programador para comprobar la funcionalidad de ciertas partes del código, podemos descargar también la carpeta test e incluirla junto con las otras. El makefile nos generará un ejecutable llamado XpectraTests, que podríamos ejecutar desde la terminal.
 Si queremos saber más acerca de ellos, se han realizado haciendo uso del framework "CuTest".
