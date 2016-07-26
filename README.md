@@ -11,12 +11,12 @@ Programa en lenguaje C que contendrá todos los cálculos numéricos para genera
 No es necesario ningún requisito especial.
 
 ##Instalación
-1. Crearemos una carpeta que podemos llamar X-pectra, por ejemplo, si no lo has hecho ya. Aquí reuniremos todo lo necesario para el funcionamiento completo de la aplicación. El nombre no es importante.
-  1. En ella tendremos que crear 2 carpetas: 
-    * Una para la parte de C, en la que estamos. La llamaremos XpectraC.
-    * La otra para la parte de Java. La llamaremos XpectraJ.
-  1. En la carpeta llamada XpectraC colocaremos todo el contenido nombrado anteriormente en la sección de preparación.
-  1. En la carteta XpectraJ introduciremos toda la parte de la interfaz en Java, situada en el repositorio "Interfaz".
+* Crearemos una carpeta que podemos llamar X-pectra, por ejemplo, si no lo has hecho ya. Aquí reuniremos todo lo necesario para el funcionamiento completo de la aplicación. El nombre no es importante. En ella tendremos que crear 2 carpetas: 
+  1. Una para la parte de C, en la que estamos. La llamaremos XpectraC.
+  2. La otra para la parte de Java. La llamaremos XpectraJ.
+
+* En la carpeta llamada XpectraC colocaremos todo el contenido nombrado anteriormente en la sección de preparación.
+* En la carteta XpectraJ introduciremos toda la parte de la interfaz en Java, situada en el repositorio "Interfaz".
 
 ![ScreenShot](/Images/1.png)
 
@@ -24,18 +24,18 @@ No es necesario ningún requisito especial.
 
 ![ScreenShot](/Images/2.png)
 
-2. Hecho ésto, podemos ejecutar el comando make desde nuestra terminal situada en el directorio ../X-pectra/XpectraC. De esta manera se nos creará automáticamente una carpeta llamada build que contendrá todos los objetos creados y el ejecutable. 
+* Hecho ésto, podemos ejecutar el comando make desde nuestra terminal situada en el directorio ../X-pectra/XpectraC. De esta manera se nos creará automáticamente una carpeta llamada build que contendrá todos los objetos creados y el ejecutable. 
 
 ![ScreenShot](/Images/3.png)
 
-3. Si deseamos ejecutar el programa por linea de comando basta con entrar a dicha carpeta (build), y utilizar el comando de ejecución:
-  3. XpectraC.exe + 5 argumentos:
+* Si deseamos ejecutar el programa por linea de comando basta con entrar a dicha carpeta (build), y utilizar el comando de ejecución:
+  * XpectraC.exe + 5 argumentos:
     * E0: referente al valor máximo sobre el cual calcularemos nuestro espectro.
     * Theta: ángulo en grados.
     * Phi: ángulo en grados.
     * Ey: valor mínimo del intervalo donde calcularemos el espectro.
     * Intervalo: unidades que separarán un valor de X del siguiente.
-  3. Si lo hacemos correctamente, se generarán dos ficheros en formato JSON con los valores de la función (X, Y).
+  Si lo hacemos correctamente, se generarán dos ficheros en formato JSON con los valores de la función (X, Y).
 
 ![ScreenShot](/Images/4.png)
 
