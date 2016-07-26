@@ -81,3 +81,4 @@ Guillermo Hernández
 María Belén Pérez Lancho
 
 ##License
+[LICENSE](https://raw.githubusercontent.com/Pabloms94/TFG/master/LICENSE.txt)
