@@ -7,22 +7,22 @@
 #include "../src/integrales.h"
 #include "../src/interpolacion.h"
 #include "../src/interpolacionBidimensional.h"
+#include "../src/interpolar1DLogLog.h"
 
 #define eps 0.01
 
-void TestIntegralBasica(CuTest* tc) {
+/*void TestIntegralBasica(CuTest* tc) {
 	double menor1 = 1;
 	double mayor1 = 2;
 	double menor2 = 3;
 	double mayor2 = 4;
-	int particiones = 1000;
 	double resultado;
 
 
 	resultado = dobleIntegral(fuente, mayor1, menor1, mayor2, menor2);
 
 	CuAssertDblEquals(tc, 5.25, resultado, eps);
-}
+}*/
 
 void TestInterpolacion1(CuTest* tc) {
 	double energia[60];
@@ -69,6 +69,13 @@ void TestInterpolacion1(CuTest* tc) {
 		CuAssertDblEquals(tc, energiaInterpolar, interpolacion, eps);
 		energiaInterpolar += 0.5;
 	}
+
+	energiaInterpolar = 3;
+			for (i= 0; i<10; i++){
+				interpolacion = interpolar1DLogLog(energiaInterpolar, x1a, x2a, 10);
+				CuAssertDblEquals(tc, energiaInterpolar, interpolacion, eps);
+				energiaInterpolar += 0.5;
+			}
 }
 
 void TestInterpolacion2D1(CuTest* tc) {
@@ -106,7 +113,7 @@ void TestInterpolacion2D1(CuTest* tc) {
 CuSuite* AddGetSuite(void) {
 	CuSuite* suite = CuSuiteNew();
 
-	SUITE_ADD_TEST(suite, TestIntegralBasica);
+	//SUITE_ADD_TEST(suite, TestIntegralBasica);
 	SUITE_ADD_TEST(suite, TestInterpolacion1);
 	SUITE_ADD_TEST(suite, TestInterpolacion2D1);
 

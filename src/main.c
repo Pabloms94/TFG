@@ -20,20 +20,20 @@ void create_objects(double *x, double *y, int i);
 
 int main(int argc, char *argv[]) {
 	int i;
-	double eIntervalo = 5, resultado, x[500], y[500];
+	double eIntervalo = 4, resultado, x[500], y[500];
 
 	if (argc != 6) {
 		printf(
 				"\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
-		//return -1;
+		return -1;
 	}
 
-	/*E0 = atof(argv[1]);
-	 Theta = atof(argv[2]);
-	 Phi = atof(argv[3]);
-	 Ey = atof(argv[4]);
-	 eIntervalo = atof(argv[5]);
-	 */
+	E0 = atof(argv[1]);
+	Theta = atof(argv[2]);
+	Phi = atof(argv[3]);
+	Ey = atof(argv[4]);
+	eIntervalo = atof(argv[5]);
+
 	printf("\n\nE0: %lf theta: %lf phi: %lf E_min: %lf E_intervalo: %lf\n\n",
 			E0, Theta, Phi, Ey, eIntervalo);
 

@@ -9,7 +9,7 @@
 
 double Xmax = 0.6;
 double E0 = 100;
-double Ey = 5;
+double Ey = 1;
 double Theta = 0;
 double Phi = 12;
 

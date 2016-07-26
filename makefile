@@ -10,7 +10,7 @@ SOURCEDIR = src
 #Directorio con cOdigo de tests
 TESTDIR= test
 #Archivo doxyfile para generar documentaciOn
-DOXYFILE = integralesV2.Doxyfile
+DOXYFILE = Xpectra.Doxyfile
 
 #directorio donde se guardarAn los objetos y ejecutables
 BUILDDIR = build
@@ -18,9 +18,9 @@ BUILDDIR = build
 DOCDIR = doc
 
 #nombre del ejectuble
-EXECUTABLE = a
+EXECUTABLE = xpectraC
 #nombre del ejecutable con los tests
-TESTEXECUTABLE = aTests
+TESTEXECUTABLE = xpectraCTests
 
 #Lista de ficheros fuente...
 SOURCES = $(wildcard $(SOURCEDIR)/*.c)

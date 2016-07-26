@@ -7,8 +7,6 @@
 #include <stdlib.h>
 
 double fuente(double x, double u) {
-	double r1, r2, r3, r4, r5, r6, res;
-
 	return fluence(x, u) * cs(Ey, u)
 			* exp(
 					mu(Ey) * (1 / sin((M_PI / 180) * Phi))
