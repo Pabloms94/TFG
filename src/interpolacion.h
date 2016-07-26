@@ -1,5 +1,5 @@
 /**
- * @brief declaracion de la funcion de interpolacion
+ * @brief declaracion de la funcion de interpolaciOn unidimensional
  *
  * @file interpolacion.h
  * @author Pablo Martin

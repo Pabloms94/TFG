@@ -12,7 +12,9 @@ double interpolar1DLogLog(double x, double X[], double Y[], int lit) {
 	y1 = Y[i];
 	y2 = Y[i + 1];
 
-	r = exp(((log(x) - log(X[i])) / (log(X[i + 1]) - log(X[i]))) * (log(y2) - log(y1)) + log(y1));
+	r = exp(
+			((log(x) - log(X[i])) / (log(X[i + 1]) - log(X[i])))
+					* (log(y2) - log(y1)) + log(y1));
 
 	return r;
 }

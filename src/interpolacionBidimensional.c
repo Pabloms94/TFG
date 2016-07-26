@@ -15,15 +15,10 @@ double interpolar2D(double* x1a, double* x2a, double** y, int n1, int n2,
 			break;
 	}
 
-
 	if (i == n1)
 		i = n1-2;
 	if (j == n2)
 		j =  n2-2;
-
-
-
-
 
 	y1 = y[i][j];
 	y2 = y[i + 1][j];

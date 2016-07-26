@@ -19,11 +19,4 @@
 
 double interpolar1DLogLog(double x, double X[], double Y[], int lit);
 
-
-
-
-
-
-
-
 #endif /* INTERPOLAR1DLOGLOG_H_ */

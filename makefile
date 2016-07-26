@@ -9,6 +9,7 @@ LDFLAGS = -lm
 SOURCEDIR = src
 #Directorio con cOdigo de tests
 TESTDIR= test
+
 #Archivo doxyfile para generar documentaciOn
 DOXYFILE = Xpectra.Doxyfile
 

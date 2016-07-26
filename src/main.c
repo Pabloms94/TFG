@@ -23,8 +23,7 @@ int main(int argc, char *argv[]) {
 	double eIntervalo = 4, resultado, x[500], y[500];
 
 	if (argc != 6) {
-		printf(
-				"\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
+		printf("\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
 		return -1;
 	}
 
