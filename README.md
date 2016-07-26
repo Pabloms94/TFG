@@ -20,6 +20,8 @@ No es necesario ningún requisito especial.
 
 ![ScreenShot](/Images/1.png)
 
+- - - -
+
 ![ScreenShot](/Images/2.png)
 
 2. Hecho ésto, podemos ejecutar el comando make desde nuestra terminal situada en el directorio ../X-pectra/XpectraC. De esta manera se nos creará automáticamente una carpeta llamada build que contendrá todos los objetos creados y el ejecutable. 
@@ -37,7 +39,11 @@ No es necesario ningún requisito especial.
 
 ![ScreenShot](/Images/4.png)
 
+- - - -
+
 ![ScreenShot](/Images/5.png)
+
+- - - -
 
 ![ScreenShot](/Images/6.png)
 
