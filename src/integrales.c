@@ -4,7 +4,7 @@
 double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
 		double mayor2, double menor2) {
 	int i, j;
-	int particiones = 2;
+	int particiones = 100;
 	double verticeMenorY, verticeMenorX;
 	double valorFuncion;
 	double area1, area2;
