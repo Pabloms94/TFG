@@ -1,8 +1,7 @@
-/*
- * llenar.h
+/**
+ * @brief declaraciOn de la funciOn llenar. Esta funciOn inicializarA las variables necesarias para el buen funcionamiento del programa.
  *
- *  Created on: 11 de jul. de 2016
- *      Author: Pablo
+ *  @author Pablo
  */
 
 #ifndef LLENAR_H_

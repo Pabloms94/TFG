@@ -9,7 +9,7 @@
 #define INTEGRALES_H_
 
 /**
- * @brief dobleIntegral calcula la doble integral que se le pasa a la funcion.
+ * @brief dobleIntegral calcula la doble integral de la funciOn que se le pasa como argumento.
  * \n\n VARIABLES
  * @param verticeMenor hace referencia al valor del extremo inferior de la particion que se toma como referencia. X e Y distinguen la coordenada que almacenan.
  */

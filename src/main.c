@@ -1,7 +1,3 @@
-/*
- * @author Pablo Martin Sanchez
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "cJSON.h"
@@ -13,17 +9,16 @@
 #include "fuente.h"
 
 void create_objects(double *x, double *y, int i);
-
-/**
- * @brief main
+/*
+ * @brief Clase Main.
+ * @author Pablo Martin Sanchez.
  */
-
 int main(int argc, char *argv[]) {
 	int i;
 	double eIntervalo = 4, resultado, x[500], y[500];
 
 	if (argc != 6) {
-		printf("\nFaltan argumentos: a.exe + E0 + theta + phi + E_min + E_intervalo.\n");
+		printf("\nFaltan argumentos: xpectraC.exe + E0 + theta + phi + E_min + E_intervalo.\n");
 		return -1;
 	}
 
@@ -32,9 +27,6 @@ int main(int argc, char *argv[]) {
 	Phi = atof(argv[3]);
 	Ey = atof(argv[4]);
 	eIntervalo = atof(argv[5]);
-
-	printf("\n\nE0: %lf theta: %lf phi: %lf E_min: %lf E_intervalo: %lf\n\n",
-			E0, Theta, Phi, Ey, eIntervalo);
 
 	lectura1D("data/csda/74.csv", &csdaS);
 
@@ -59,10 +51,13 @@ int main(int argc, char *argv[]) {
 }
 
 /**
- * @brief create_objects crea archivos json para exportar los datos a java
- * @param x es el vector de energía que se representara en el eje de las X
- * @param y es el vector de atenuacion que se representara en el eje de las Y
- * @param i indica el numero de elementos de los arrays
+ * @brief create_objects crea archivos json para exportar los datos a java.
+ *
+ * @author Pablo Martin Sanchez.
+ *
+ * @param x es el vector de energía que se representara en el eje de las X.
+ * @param y es el vector de atenuacion que se representara en el eje de las Y.
+ * @param i indica el numero de elementos de los arrays.
  */
 
 void create_objects(double *x, double *y, int i) {

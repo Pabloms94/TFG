@@ -1,5 +1,5 @@
 /**
- * @brief declaracion de la funcion lecturaBidimensional
+ * @brief declaraciOn de la funciOn lecturaBidimensional
  *
  * @file lecturaBidimensional.h
  * @author Pablo Martin

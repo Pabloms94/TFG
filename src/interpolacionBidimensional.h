@@ -1,5 +1,5 @@
 /**
- * @brief declaracion de la funcion de interpolacion bidimensional
+ * @brief declaraciOn de la funciOn de interpolaciOn bidimensional.
  *
  * @file interpolacionBidimensional.h
  * @author Pablo Martin
@@ -14,8 +14,8 @@
  * @param x1a sera el vector con los valores de las coordenadas X.
  * @param x2a es un array de tipo double que contiene los valores de la coordenada Y.
  * @param y sera la matriz que contenga los valores de z en función de x e y.
- * @param n1 es un entero que indica el numero de elementos del vector x1a.
- * @param n2 es un entero que indica el numero de elementos del array x2a.
+ * @param n1 es un entero que indica el nUmero de elementos del vector x1a.
+ * @param n2 es un entero que indica el nUmero de elementos del array x2a.
  * @param x1 es un entero que indica el valor de la coordenada X para la cual se va a buscar Z.
  * @param x2 es un entero que indica el valor de la coordenada Y para la cual se va a buscar Z.
  */

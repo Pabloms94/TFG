@@ -1,5 +1,5 @@
 /**
- * @brief declaracion de la funcion de interpolacion
+ * @brief declaraciOn de la funciOn de interpolaciOn mejorada
  *
  * @file interpolar1DLogLog.h
  * @author Pablo Martin

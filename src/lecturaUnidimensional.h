@@ -1,5 +1,5 @@
 /**
- * @brief declaracion de la funcion lecturaUnidimensional
+ * @brief declaraciOn de la funciOn lecturaUnidimensional
  *
  * @file lecturaUnidimensional.h
  * @author Pablo Martin

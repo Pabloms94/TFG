@@ -33,7 +33,7 @@ void TestInterpolacion1(CuTest* tc) {
 	double interpolacion;
 	double x1a[10], x2a[10];
 
-	FILE* f = fopen("../../mu/mu74.csv", "r");
+	/*FILE* f = fopen("data/mu/mu74.csv", "r");
 
 	while (fscanf(f, "%lg,%lg,%lg\n", &energia[i], &atenuacion[i],
 			&absorcion[i]) != EOF) {
@@ -56,7 +56,7 @@ void TestInterpolacion1(CuTest* tc) {
 
 	energiaInterpolar = 1500;
 	interpolacion = interpolar1D(energiaInterpolar, energia, atenuacion, i);
-	CuAssertDblEquals(tc, 0.05, interpolacion, eps);
+	CuAssertDblEquals(tc, 0.05, interpolacion, eps);*/
 
 	for (i = 0; i < 10; i++) {
 		x1a[i] = i;
@@ -66,7 +66,7 @@ void TestInterpolacion1(CuTest* tc) {
 	energiaInterpolar = 0;
 	for (i= 0; i<10; i++){
 		interpolacion = interpolar1D(energiaInterpolar, x1a, x2a, 10);
-		CuAssertDblEquals(tc, energiaInterpolar, interpolacion, eps);
+		CuAssertDblEquals(tc, 3, interpolacion, eps);
 		energiaInterpolar += 0.5;
 	}
 
@@ -114,6 +114,7 @@ CuSuite* AddGetSuite(void) {
 	CuSuite* suite = CuSuiteNew();
 
 	//SUITE_ADD_TEST(suite, TestIntegralBasica);
+
 	SUITE_ADD_TEST(suite, TestInterpolacion1);
 	SUITE_ADD_TEST(suite, TestInterpolacion2D1);
 
