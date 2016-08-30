@@ -11,10 +11,10 @@
 /**
  * @brief dobleIntegral calcula la doble integral de la funciOn que se le pasa como argumento.
  * \n\n VARIABLES
- * @param mayor1 hace referencia al valor del límite superior de la integral externa.
- * @param menor1 hace referencia al valor del límite inferior de la integral externa.
- * @param mayor2 hace referencia al valor del límite superior de la integral interna.
- * @param menor2 hace referencia al valor del límite inferior de la integral interna.
+ * @param mayor1 hace referencia al valor del lImite superior de la integral externa.
+ * @param menor1 hace referencia al valor del lImite inferior de la integral externa.
+ * @param mayor2 hace referencia al valor del lImite superior de la integral interna.
+ * @param menor2 hace referencia al valor del lImite inferior de la integral interna.
  */
 
 double dobleIntegral(double (*f)(double, double), double mayor1, double menor1,
